@@ -22,7 +22,7 @@ func main() {
 		slice = append(slice, intt)
 	}
 	sortSlice(slice)
-	fmt.Printf("Ваша последовательнотсть чисел поссле сортировки: %v\n", slice)
+	fmt.Printf("Ваша последовательнотсть чисел после сортировки: %v\n", slice)
 }
 
 func sortSlice(array []int) {
