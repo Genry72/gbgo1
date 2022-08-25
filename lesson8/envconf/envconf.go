@@ -17,7 +17,7 @@ type AppConf struct {
 }
 type myurl string
 
-func (ac myurl) Decode(val string) error {
+func (ac *myurl) Decode(val string) error {
 	u, err := url.Parse(val)
 	if err != nil || u.Scheme == "" || u.Host == "" {
 		err = fmt.Errorf("не удалось распарсить url: %s", val)
@@ -26,11 +26,11 @@ func (ac myurl) Decode(val string) error {
 	return nil
 }
 
-func New() (AppConf, error) {
-	var conf = AppConf{}
-	err := envconfig.Process("", &conf)
+func New() (*AppConf, error) {
+	var conf = &AppConf{}
+	err := envconfig.Process("", conf)
 	if err != nil {
-		return conf, err
+		return nil, err
 	}
 	return conf, nil
 }

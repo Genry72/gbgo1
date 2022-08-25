@@ -63,5 +63,5 @@ func main() {
 		fmt.Println("Ошибка получения конфигурации", err)
 		return
 	}
-	fmt.Printf("%+v\n", conf)
+	fmt.Printf("%+v\n", *conf)
 }
